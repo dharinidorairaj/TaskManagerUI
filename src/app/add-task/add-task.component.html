@@ -1,0 +1,46 @@
+<div class="container">
+  <div class="row">
+      <label class="col-sm-2">Task</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" id="taskName" maxLength="70" placeholder="Task" [(ngModel)]="task.taskName">
+    </div>
+    </div>
+  <div class="row">
+      <label class="col-sm-3">Priority</label>
+      <div class="col-sm-4">
+        <input type="range" class="slider" min="0" max="30" id="priority" [(ngModel)]="task.priority">
+      </div>
+      <div class="col-sm-3">
+        {{task.priority}}
+      </div>
+    </div>    
+  <div class="row">
+    <label lass="col-sm-3">Parent Task</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="parentTaskId" maxLength="70" placeholder="Parent Task" [(ngModel)]="task.parentTaskId">
+    </div>
+    </div>
+  <div class="row">
+    <label class="col-sm-2">Start Date</label>
+    <div class="col-sm-9">
+      <input type="date" class="form-control" id="startDate" [(ngModel)]="task.startDate">
+      </div>
+    </div>
+  <div class="row">
+    <label class="col-sm-2">End Date</label>
+    <div class="col-sm-9">
+      <input type="date" class="form-control" id="endDate" [(ngModel)]="task.endDate">
+    </div>  
+    </div>
+    <div>
+      <button type="button" (click)="addTask(task)">
+        Add Task
+      </button>
+      <!-- <button type="button" (click)="getTaskById()">
+        View Task
+      </button>
+      <button type="button" (click)="deleteTask(task)">
+        Delete Task
+      </button> -->
+    </div>
+</div>

@@ -1,0 +1,69 @@
+    <div class="container">
+      <h3>Search Task</h3>
+      <div>
+        <label class="col-xs-2">Task:</label>
+        <div class="col-xs-4">
+          <input type="text" name="txtTaskName" [(ngModel)]="TaskName" (input)="searchTaskDetail()" class="form-control">
+        </div>
+        <label class="col-xs-2">Parent Task:</label>
+        <div class="col-xs-4">
+          <input type="text" name="txtPTaskName" [(ngModel)]="parentTaskId" (input)="searchTaskDetail()" class="form-control">
+        </div>
+      </div>
+  
+      <div>
+        <label class="col-xs-2">Priority From:</label>
+        <div class="col-xs-4">
+          <input type="text" name="txtPtFrom" [(ngModel)]="PriorityFrom" (input)="searchTaskDetail()" class="form-control">
+        </div>
+        <label class="col-xs-2">Priority To:</label>
+        <div class="col-xs-4">
+          <input type="text" name="txtPtTo" [(ngModel)]="PriorityTo" (input)="searchTaskDetail()" class="form-control">
+        </div>
+      </div>
+  
+      <div>
+        <label class="col-xs-2">Start Date:</label>
+        <div class="col-xs-4">
+          <input type="date" name="stDate" [(ngModel)]="startDate" (input)="searchTaskDetail()" class="form-control">
+        </div>
+        <label class="col-xs-2">End Date:</label>
+        <div class="col-xs-4">
+          <input type="date" name="endDate" [(ngModel)]="endDate" (input)="searchTaskDetail()" class="form-control">
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <table class="table table-hover">
+        <tr *ngFor="let item of taskList">
+          <td>
+            <label>Task</label>
+            <br> {{item.taskName}}
+          </td>
+          <td>
+            <label>Parent</label>
+            <br> {{item.parentTaskId}}
+          </td>
+          <td>
+            <label>Priority</label>
+            <br> {{item.priority}}
+          </td>
+          <td>
+            <label>Start</label>
+            <br> {{item.startDate|date:"MM/dd/yyyy"}}
+          </td>
+          <td>
+            <label>End</label>
+            <br> {{item.endDate|date:"MM/dd/yyyy"}}
+          </td>
+          <td>
+            <input type="button" class="btn btn-default" [routerLink]="['/updateTask']"
+              [queryParams]="{ id: item.taskId }" value="Edit">
+          </td>
+          <td>
+            <input type="button" class="btn btn-default" (click)='endTask(item.taskId)' value="End Task">
+          </td>
+        </tr>
+      </table>
+    </div>
+  
